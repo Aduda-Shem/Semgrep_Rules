@@ -27,6 +27,9 @@ def prepend_errors_to_file(errors, target_file):
         f.write(content)
 
 def main():
+    """
+        this is where we store the semgrep rules
+    """
     rules_directory = "semgrep_rules"
 
     target_directory = "src"
