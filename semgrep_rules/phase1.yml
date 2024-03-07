@@ -1,0 +1,57 @@
+# Rule 1: Exposure of Secret Credentials
+rules:
+  - id: expose-secret-credentials
+    message: "Potential exposure of secret credentials"
+    severity: ERROR
+    patterns:
+      - pattern: "password = $PASS"
+    languages:
+      - python
+      - javascript
+      - java
+
+# Rule 2: Cross-Site Scripting (XSS) Vulnerability
+  - id: xss-vulnerability
+    severity: ERROR
+    message: "Possible cross-site scripting (XSS) vulnerability"
+    patterns:
+      - pattern-either:
+          - pattern: "element.innerHTML = $INPUT"
+          - pattern: "element.textContent = $INPUT"
+    languages:
+      - javascript
+      - html
+      - python
+
+
+# Rule 3: SQL Injection Vulnerability
+  - id: sql-injection-vulnerability
+    message: "Possible SQL injection vulnerability"
+    severity: ERROR
+    patterns:
+      - pattern: "executeQuery($QUERY)"
+    languages:
+      - java
+      - python
+
+# Rule 4: Sensitive Data Exposure
+  - id: sensitive-data-exposure
+    message: "Detected insecure handling of sensitive data"
+    severity: ERROR
+    patterns:
+      - pattern: "plaintext_storage($DATA)"
+    languages:
+      - python
+      - java
+      - csharp
+
+# Rule 5: Insecure Cryptographic Practices
+  - id: insecure-crypto-practices
+    message: "Identified insecure cryptographic practices"
+    severity: ERROR
+    patterns:
+      - pattern: "crypto_function($PARAM)"
+    languages:
+      - python
+      - java
+      - go

@@ -1,0 +1,44 @@
+# Rule 1: Pattern
+rules:
+  - id: pattern-example
+    message: "Example of pattern rule"
+    severity: ERROR
+    languages:
+      - python
+    patterns:
+      - pattern: "password = 'hardcoded_password'"
+
+# Rule 2: Patterns
+  - id: patterns-example
+    message: "Example of patterns rule"
+    severity: ERROR
+    languages:
+      - python
+    patterns:
+      - pattern: "import os"
+
+# Rule 3: Pattern-either
+  - id: pattern-either-example
+    message: "Example of pattern-either rule"
+    severity: ERROR
+    languages:
+      - python
+    patterns:
+      - pattern-either:
+          - pattern: "encrypt_data(data)"
+          - pattern: "decrypt_data(data)"
+
+# Rule 4: Pattern-inside
+  - id: pattern-inside-example
+    message: "Example of pattern-inside rule"
+    severity: ERROR
+    languages:
+      - python
+    patterns:
+      - pattern-inside:
+          pattern: "if (...):"
+          inside: "log_info(...)"
+
+
+# Rule 5: Pattern-not
+

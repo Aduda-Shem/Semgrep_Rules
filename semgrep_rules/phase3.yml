@@ -1,0 +1,35 @@
+# Rule 1: Metavariable-regex
+rules:
+  - id: metavariable-regex-example
+    message: "Example of metavariable-regex rule"
+    severity: ERROR
+    languages:
+      - python
+    patterns:
+      - metavariable-regex:
+          metavariable: $LIB
+          regex: ^(knex)$
+      - pattern: "$LIB.query(...)"
+
+# Rule 2: Metavariable-comparison
+  - id: metavariable-comparison-example
+    message: "Example of metavariable-comparison rule"
+    severity: ERROR
+    languages:
+      - python
+    patterns:
+      - pattern: "$VAR == $VALUE"
+
+# Rule 3: Metavariable-pattern
+  - id: metavariable-pattern-example
+    message: "Example of metavariable-pattern rule"
+    severity: ERROR
+    languages:
+      - java
+    patterns:
+      - metavariable-pattern:
+          metavariable: $PATTERN
+          patterns:
+            - pattern-either:
+                - pattern: "$SOCKET.getOutputStream(...)"
+                - pattern: "$SOCKET.write(...)"
